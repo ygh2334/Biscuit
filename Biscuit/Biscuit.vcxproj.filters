@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Biscuit">
+      <UniqueIdentifier>{583C8AD9-C41B-0975-CD33-944B39926FD6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Biscuit\Events">
+      <UniqueIdentifier>{3C9545EA-2863-39F0-11F7-A916FD631555}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Biscuit.h" />
+    <ClInclude Include="src\Biscuit\Application.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\EntryPoint.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Events\ApplicationEvent.h">
+      <Filter>Biscuit\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Events\Event.h">
+      <Filter>Biscuit\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Events\KeyEvent.h">
+      <Filter>Biscuit\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Events\MouseEvent.h">
+      <Filter>Biscuit\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Layer.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\LayerStack.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Log.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Window.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bcpch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Biscuit\Application.cpp">
+      <Filter>Biscuit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Layer.cpp">
+      <Filter>Biscuit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\LayerStack.cpp">
+      <Filter>Biscuit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Log.cpp">
+      <Filter>Biscuit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bcpch.cpp" />
+  </ItemGroup>
+</Project>
