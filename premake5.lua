@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder(solutuion directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Biscuit/vendor/GLFW/include"
+IncludeDir["Glad"] = "Biscuit/vendor/Glad/include"
 
 include "Biscuit/vendor/GLFW"
+include "Biscuit/vendor/Glad"
 
 project "Biscuit"
 	location "Biscuit"
@@ -37,13 +39,15 @@ project "Biscuit"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 		
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
@@ -56,7 +60,8 @@ project "Biscuit"
 		defines
 		{
 			"BC_BUILD_DLL",
-			"BC_PLATFORM_WINDOWS"
+			"BC_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
