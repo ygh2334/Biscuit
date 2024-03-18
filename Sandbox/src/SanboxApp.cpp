@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverLay(new Biscuit::ImGuiLayer());
 	}
 
 	~Sandbox()

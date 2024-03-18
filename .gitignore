@@ -17,6 +17,9 @@ bin-int/*
 /Biscuit/vendor/Glad/bin/*
 /Biscuit/vendor/GLad/bin-int/*
 
+/Biscuit/vendor/imgui/bin/*
+/Biscuit/vendor/imgui/bin-int/*
+
 #Files
 *.usr
 

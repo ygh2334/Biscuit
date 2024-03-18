@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Biscuit/vendor/GLFW/include"
 IncludeDir["Glad"] = "Biscuit/vendor/Glad/include"
+IncludeDir["ImGui"] = "Biscuit/vendor/imgui"
 
 include "Biscuit/vendor/GLFW"
 include "Biscuit/vendor/Glad"
+include "Biscuit/vendor/ImGui"
 
 project "Biscuit"
 	location "Biscuit"
@@ -40,7 +42,8 @@ project "Biscuit"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 		
 	}
 
@@ -48,6 +51,7 @@ project "Biscuit"
 	{ 
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
