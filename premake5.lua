@@ -7,6 +7,9 @@ workspace "GameEngine"
 		"Release",
 		"Dist"
 	}
+	
+--设置启动项目
+startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -16,9 +19,12 @@ IncludeDir["GLFW"] = "Biscuit/vendor/GLFW/include"
 IncludeDir["Glad"] = "Biscuit/vendor/Glad/include"
 IncludeDir["ImGui"] = "Biscuit/vendor/imgui"
 
-include "Biscuit/vendor/GLFW"
-include "Biscuit/vendor/Glad"
-include "Biscuit/vendor/ImGui"
+--把依赖放到一个组里面
+group "Dependencies"
+		include "Biscuit/vendor/GLFW"
+		include "Biscuit/vendor/Glad"
+		include "Biscuit/vendor/ImGui"
+group ""
 
 project "Biscuit"
 	location "Biscuit"
@@ -70,7 +76,7 @@ project "Biscuit"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 		filter "configurations:Debug"
