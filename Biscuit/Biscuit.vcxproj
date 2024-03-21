@@ -161,11 +161,13 @@
     <ClInclude Include="src\Biscuit\Events\KeyEvent.h" />
     <ClInclude Include="src\Biscuit\Events\MouseEvent.h" />
     <ClInclude Include="src\Biscuit\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Biscuit\Input.h" />
     <ClInclude Include="src\Biscuit\Layer.h" />
     <ClInclude Include="src\Biscuit\LayerStack.h" />
     <ClInclude Include="src\Biscuit\Log.h" />
     <ClInclude Include="src\Biscuit\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\bcpch.h" />
   </ItemGroup>
@@ -176,6 +178,7 @@
     <ClCompile Include="src\Biscuit\LayerStack.cpp" />
     <ClCompile Include="src\Biscuit\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\bcpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
