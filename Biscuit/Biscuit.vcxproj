@@ -162,9 +162,11 @@
     <ClInclude Include="src\Biscuit\Events\MouseEvent.h" />
     <ClInclude Include="src\Biscuit\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Biscuit\Input.h" />
+    <ClInclude Include="src\Biscuit\KeyCodes.h" />
     <ClInclude Include="src\Biscuit\Layer.h" />
     <ClInclude Include="src\Biscuit\LayerStack.h" />
     <ClInclude Include="src\Biscuit\Log.h" />
+    <ClInclude Include="src\Biscuit\MouseButtonCodes.h" />
     <ClInclude Include="src\Biscuit\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

@@ -67,6 +67,8 @@
     <ClInclude Include="src\bcpch.h" />
     <ClInclude Include="src\Biscuit\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Biscuit\KeyCodes.h" />
+    <ClInclude Include="src\Biscuit\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Biscuit\Application.cpp">

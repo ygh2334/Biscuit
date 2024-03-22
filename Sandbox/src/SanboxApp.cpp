@@ -11,12 +11,19 @@ public:
 
 	void OnUpdate() override
 	{
-		BC_INFO("ExampleLayer::Update");
+		if (Biscuit::Input::IsKeyPressed(BC_KEY_TAB))
+			BC_INFO("Tab key is pressed!");
+
 	}
 
 	void OnEvent(Biscuit::Event& event) override
 	{
 		BC_TRACE("{0}", event);
+		if (event.GetEventType() == Biscuit::EventType::KeyPressed)
+		{
+			Biscuit::KeyPressedEvent& e = (Biscuit::KeyPressedEvent&)event;
+			BC_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
