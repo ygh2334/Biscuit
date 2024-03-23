@@ -24,3 +24,5 @@ bin-int/*
 *.usr
 
 
+/Biscuit/vendor/glm/test
+/Biscuit/vendor/glm/doc
