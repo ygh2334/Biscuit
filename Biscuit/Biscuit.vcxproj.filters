@@ -46,6 +46,12 @@
     <ClInclude Include="src\Biscuit\ImGui\ImGuiLayer.h">
       <Filter>Biscuit\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Biscuit\Input.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\KeyCodes.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
     <ClInclude Include="src\Biscuit\Layer.h">
       <Filter>Biscuit</Filter>
     </ClInclude>
@@ -55,20 +61,22 @@
     <ClInclude Include="src\Biscuit\Log.h">
       <Filter>Biscuit</Filter>
     </ClInclude>
+    <ClInclude Include="src\Biscuit\MouseButtonCodes.h">
+      <Filter>Biscuit</Filter>
+    </ClInclude>
     <ClInclude Include="src\Biscuit\Window.h">
       <Filter>Biscuit</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\bcpch.h" />
-    <ClInclude Include="src\Biscuit\Input.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Biscuit\KeyCodes.h" />
-    <ClInclude Include="src\Biscuit\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Biscuit\Application.cpp">
@@ -89,10 +97,12 @@
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\bcpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

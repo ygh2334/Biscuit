@@ -6,7 +6,6 @@ class ExampleLayer : public Biscuit::Layer
 public:
 	ExampleLayer() :Layer("Example")
 	{
-
 	}
 
 	void OnUpdate() override

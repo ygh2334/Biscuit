@@ -20,9 +20,10 @@ bin-int/*
 /Biscuit/vendor/imgui/bin/*
 /Biscuit/vendor/imgui/bin-int/*
 
+/Biscuit/vendor/glm/test
+/Biscuit/vendor/glm/doc
 #Files
 *.usr
 
 
-/Biscuit/vendor/glm/test
-/Biscuit/vendor/glm/doc
+

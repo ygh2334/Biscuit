@@ -18,6 +18,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Biscuit/vendor/GLFW/include"
 IncludeDir["Glad"] = "Biscuit/vendor/Glad/include"
 IncludeDir["ImGui"] = "Biscuit/vendor/imgui"
+IncludeDir["glm"] = "Biscuit/vendor/glm"
 
 --把依赖放到一个组里面
 group "Dependencies"
@@ -41,7 +42,8 @@ project "Biscuit"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/src/vendor/glm/glm/**.hpp"
 	}
 
 	includedirs
@@ -50,8 +52,8 @@ project "Biscuit"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
-		
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -112,7 +114,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Biscuit/vendor/spdlog/include",
-		"Biscuit/src"
+		"Biscuit/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

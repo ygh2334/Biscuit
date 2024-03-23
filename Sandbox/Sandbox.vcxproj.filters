@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Biscuit">
+      <UniqueIdentifier>{583C8AD9-C41B-0975-CD33-944B39926FD6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Biscuit\vendor">
+      <UniqueIdentifier>{B57F635B-A14D-5761-8AE1-C787764E33C6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\SanboxApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Biscuit\vendor\glm">
+      <Filter>Biscuit\vendor</Filter>
+    </None>
+  </ItemGroup>
+</Project>
