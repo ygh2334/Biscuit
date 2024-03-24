@@ -1,5 +1,4 @@
 #include <Biscuit.h>
-#include "Biscuit/Log.cpp"
 #include "imgui/imgui.h"
 
 class ExampleLayer : public Biscuit::Layer

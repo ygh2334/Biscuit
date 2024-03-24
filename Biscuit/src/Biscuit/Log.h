@@ -6,7 +6,7 @@
 
 namespace Biscuit 
 {
-	class Log
+	class BISCUIT_API Log
 	{
 	public:
 		static void Init();
