@@ -115,6 +115,7 @@ project "Sandbox"
 	{
 		"Biscuit/vendor/spdlog/include",
 		"Biscuit/src",
+		"Biscuit/vendor",
 		"%{IncludeDir.glm}"
 	}
 

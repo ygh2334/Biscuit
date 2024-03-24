@@ -1,5 +1,6 @@
 #include <Biscuit.h>
 #include "Biscuit/Log.cpp"
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Biscuit::Layer
 {
@@ -13,6 +14,13 @@ public:
 		if (Biscuit::Input::IsKeyPressed(BC_KEY_TAB))
 			BC_INFO("Tab key is pressed!");
 
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello world");
+		ImGui::End();
 	}
 
 	void OnEvent(Biscuit::Event& event) override
@@ -32,7 +40,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverLay(new Biscuit::ImGuiLayer());
 	}
 
 	~Sandbox()
