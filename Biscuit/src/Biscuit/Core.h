@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef BC_PLATFORM_WINDOWS
+#if BC_DYNAMIC_LINK
 	#ifdef BC_BUILD_DLL
 		#define BISCUIT_API __declspec(dllexport)
 	#else
 		#define BISCUIT_API __declspec(dllimport)
 	#endif 
+#else
+	#define BISCUIT_API
+#endif
 #else
 	#error Biscuit only support Windows!
 #endif
