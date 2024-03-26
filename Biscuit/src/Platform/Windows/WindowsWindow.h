@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Biscuit/Window.h"
+#include "Biscuit/Renderer/GraphicsContext.h"
+
 #include "GLFW/glfw3.h"
 
 namespace Biscuit {
@@ -27,6 +29,7 @@ namespace Biscuit {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
