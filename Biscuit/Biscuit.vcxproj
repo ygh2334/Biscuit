@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Biscuit\Renderer\Shader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Biscuit.h" />
     <ClInclude Include="src\Biscuit\Application.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="src\bcpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Biscuit\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Biscuit\Application.cpp" />
     <ClCompile Include="src\Biscuit\ImGui\ImGuiBuild.cpp" />
