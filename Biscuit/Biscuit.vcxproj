@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h" />
+    <ClInclude Include="src\Biscuit\Renderer\Renderer.h" />
     <ClInclude Include="src\Biscuit\Renderer\Shader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Biscuit\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Biscuit\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />

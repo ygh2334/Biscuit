@@ -24,15 +24,14 @@ namespace Biscuit {
 		glGenVertexArrays(1, &m_VertexArray);
 		glBindVertexArray(m_VertexArray);
 
-		glGenBuffers(1, &m_VertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
 		float vertices[3 * 3] = {
 			-0.5f,-0.5f,0.0f,
 			0.5f,-0.5f,0.0f,
 			0.0f,0.5f,0.0f
 		};
 
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);

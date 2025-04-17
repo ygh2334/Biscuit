@@ -10,6 +10,7 @@
 #include "Biscuit/ImGui/ImGuiLayer.h"
 
 #include "Biscuit/Renderer/Shader.h"
+#include "Biscuit/Renderer/Buffer.h"
 
 namespace Biscuit {
 
@@ -37,8 +38,9 @@ namespace Biscuit {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray, m_IndexBuffer;
 		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
 	private:
 		static Application* s_Instance;
 	};
