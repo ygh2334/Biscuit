@@ -45,7 +45,7 @@ namespace Biscuit {
 		uint32_t Size;
 		uint32_t Offset;
 
-		BufferElement(const std::string& name, ShaderDataType type)
+		BufferElement(ShaderDataType type, const std::string& name)
 			:Name(name), Type(type), Size(0), Offset(0)
 		{
 		}
@@ -54,11 +54,34 @@ namespace Biscuit {
 	class BufferLayout
 	{
 	public:
+		BufferLayout(const std::initializer_list<BufferElement>& elements)
+			:m_Elements(elements)
+		{
+			CalculateOffsetsAndStride();
+		}
 	
-		inline const std::vector<BufferLayout>& GetElement() const { return m_Elements; }
+		inline const std::vector<BufferElement>& GetElement() const 
+		{ 
+			return m_Elements; 
+		}
+	private:
+		void CalculateOffsetsAndStride()
+		{
+			uint32_t offset = 0;
+			m_Stide = 0;
+			for (auto& element : m_Elements)
+			{
+				element.Offset = offset;
+				offset += element.Size;
+				m_Stide += element.Size;
+			}
+		}
+
 	private:
 		std::vector<BufferElement> m_Elements;
+		uint32_t m_Stide = 0;
 	};
+
 	class VertexBuffer
 	{
 	public:
