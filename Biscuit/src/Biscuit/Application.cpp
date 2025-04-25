@@ -11,6 +11,36 @@ namespace Biscuit {
 
 	Application* Application::s_Instance = nullptr;
 
+	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
+	{
+		switch (type)
+		{
+		case Biscuit::ShaderDataType::Float:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Float2:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Float3:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Float4:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Mat3:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Mat4:
+			return GL_FLOAT;
+		case Biscuit::ShaderDataType::Int:
+			return GL_INT;
+		case Biscuit::ShaderDataType::Int2:
+			return GL_INT;
+		case Biscuit::ShaderDataType::Int3:
+			return GL_INT;
+		case Biscuit::ShaderDataType::Int4:
+			return GL_INT;
+		case Biscuit::ShaderDataType::Bool:
+			return GL_BOOL;
+		}
+		BC_CORE_ASSERT(false, "Unknown ShaderDataType!");
+		return 0;
+	}
 	Application::Application()
 	{
 		BC_CORE_ASSERT(!s_Instance, "Application already exists!");
@@ -35,11 +65,18 @@ namespace Biscuit {
 			{ShaderDataType::Float3, "a_Position"}
 		};
 
-		BufferLayout layout2(layout);
-		m_VertexBuffer->SetLayout(layout);
+		uint32_t index = 0;
+		for (const auto& element : layout)
+		{
+			glEnableVertexAttribArray(index);
+			glVertexAttribPointer(index, element.GetComponentCount(), 
+				ShaderDataTypeToOpenGLBaseType(element.Type), 
+				element.Normalized ? GL_TRUE : GL_FALSE,
+				layout.GetStride(), 
+				(const void*)element.Offset);
+			index++;
+		}
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
 		uint32_t indices[3] = { 0,1,2 };
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
