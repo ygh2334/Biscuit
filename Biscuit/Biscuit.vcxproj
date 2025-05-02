@@ -146,6 +146,7 @@
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h" />
     <ClInclude Include="src\Biscuit\Renderer\Renderer.h" />
     <ClInclude Include="src\Biscuit\Renderer\Shader.h" />
+    <ClInclude Include="src\Biscuit\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Biscuit.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Biscuit\MouseButtonCodes.h" />
     <ClInclude Include="src\Biscuit\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Biscuit\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\bcpch.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="src\Biscuit\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Biscuit\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Biscuit\Application.cpp" />
@@ -181,6 +184,7 @@
     <ClCompile Include="src\Biscuit\Layer.cpp" />
     <ClCompile Include="src\Biscuit\LayerStack.cpp" />
     <ClCompile Include="src\Biscuit\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\bcpch.cpp">
