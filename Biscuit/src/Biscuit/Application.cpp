@@ -10,37 +10,6 @@ namespace Biscuit {
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
-
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-	{
-		switch (type)
-		{
-		case Biscuit::ShaderDataType::Float:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Float2:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Float3:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Float4:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Mat3:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Mat4:
-			return GL_FLOAT;
-		case Biscuit::ShaderDataType::Int:
-			return GL_INT;
-		case Biscuit::ShaderDataType::Int2:
-			return GL_INT;
-		case Biscuit::ShaderDataType::Int3:
-			return GL_INT;
-		case Biscuit::ShaderDataType::Int4:
-			return GL_INT;
-		case Biscuit::ShaderDataType::Bool:
-			return GL_BOOL;
-		}
-		BC_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
 	Application::Application()
 	{
 		BC_CORE_ASSERT(!s_Instance, "Application already exists!");
@@ -51,8 +20,7 @@ namespace Biscuit {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverLay(m_ImGuiLayer);
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		m_VertexArray.reset(VertexArray::Create());
 
 		float vertices[3 * 7] = {
 			-0.5f,-0.5f,0.0f,0.8f,0.2f,0.8f,1.0f,
@@ -61,28 +29,13 @@ namespace Biscuit {
 		};
 
 		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-		{
-			BufferLayout layout = {
-				{ShaderDataType::Float3, "a_Position"},
-				{ShaderDataType::Float4, "a_Color"}
-			};
-			m_VertexBuffer->SetLayout(layout);
-		}
+		BufferLayout layout = {
+			{ShaderDataType::Float3, "a_Position"},
+			{ShaderDataType::Float4, "a_Color"}
+		};
 
-
-		uint32_t index = 0;
-		const auto& layout = m_VertexBuffer->GetLayout();
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index, element.GetComponentCount(), 
-				ShaderDataTypeToOpenGLBaseType(element.Type), 
-				element.Normalized ? GL_TRUE : GL_FALSE,
-				layout.GetStride(), 
-				(const void*)element.Offset);
-			index++;
-		}
-
+		m_VertexBuffer->SetLayout(layout);
+		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
 		uint32_t indices[3] = { 0,1,2 };
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
