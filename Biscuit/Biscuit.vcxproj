@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h" />
     <ClInclude Include="src\Biscuit\Renderer\Renderer.h" />
+    <ClInclude Include="src\Biscuit\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Biscuit\Renderer\Shader.h" />
     <ClInclude Include="src\Biscuit\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
@@ -174,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="src\Biscuit\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Biscuit\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Shader.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />

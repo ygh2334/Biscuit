@@ -79,6 +79,7 @@
     <ClInclude Include="src\Biscuit\Renderer\Renderer.h" />
     <ClInclude Include="src\Biscuit\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Biscuit\Renderer\RendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Biscuit\Application.cpp">
@@ -113,5 +114,6 @@
     <ClCompile Include="src\Biscuit\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Biscuit\Renderer\RendererAPI.cpp" />
   </ItemGroup>
 </Project>
