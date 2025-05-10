@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "Biscuit/Log.h"
 
-#include <glad/glad.h>
+#include "Biscuit/Renderer/Renderer.h"
 #include "Input.h"
 
 namespace Biscuit {
@@ -163,10 +163,7 @@ namespace Biscuit {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			RenderCommand::SetClearColor();
+			RenderCommand::SetClearColor({0.1f,0.1f,0.1f,1});
 			RenderCommand::Clear();
 
 			Renderer::BeginScene();
@@ -178,14 +175,6 @@ namespace Biscuit {
 			Renderer::Submit(m_VertexArray);
 
 			Renderer::EndScene();
-
-			m_SquareVA->Bind();
-			m_BlueShader->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
-
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer() ->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
