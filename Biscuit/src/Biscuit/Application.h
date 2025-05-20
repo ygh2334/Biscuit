@@ -12,6 +12,7 @@
 #include "Biscuit/Renderer/Shader.h"
 #include "Biscuit/Renderer/Buffer.h"
 #include "Biscuit/Renderer/VertexArray.h"
+#include "Biscuit/Renderer/OrthographicCamera.h"
 
 namespace Biscuit {
 
@@ -44,6 +45,7 @@ namespace Biscuit {
 		std::shared_ptr<VertexArray> m_VertexArray;
 		std::shared_ptr<VertexArray> m_SquareVA;
 
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

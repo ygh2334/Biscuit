@@ -11,6 +11,7 @@ namespace Biscuit {
 
 	Application* Application::s_Instance = nullptr;
 	Application::Application()
+		: m_Camera(-1.6,1.6,-0.9,0.9)
 	{
 		BC_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
@@ -72,6 +73,8 @@ namespace Biscuit {
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
 
+			uniform mat4 u_ViewProjection;
+
 			out vec3 v_Position;
 			out vec4 v_Color;
 
@@ -79,7 +82,7 @@ namespace Biscuit {
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -103,13 +106,14 @@ namespace Biscuit {
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
-
+			uniform mat4 u_ViewProjection;
+	
 			out vec3 v_Position;
 
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -169,9 +173,11 @@ namespace Biscuit {
 			Renderer::BeginScene();
 
 			m_BlueShader->Bind();
+			m_BlueShader->UploadUniformMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
 			Renderer::Submit(m_SquareVA);
 
 			m_Shader->Bind();
+			m_Shader->UploadUniformMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
 			Renderer::Submit(m_VertexArray);
 
 			Renderer::EndScene();
