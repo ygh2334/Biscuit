@@ -12,6 +12,17 @@
 
 #include "Biscuit/ImGui/ImGuiLayer.h"
 
+//---Renderer-----------------------
+#include "Biscuit/Renderer/Renderer.h"
+#include "Biscuit/Renderer/RenderCommand.h"
+
+#include "Biscuit/Renderer/Buffer.h"
+#include "Biscuit/Renderer/Shader.h"
+#include "Biscuit/Renderer/VertexArray.h"
+
+#include "Biscuit/Renderer/OrthographicCamera.h"
+//-------------------------------------
+
 //---Entry Point-----------------------
 #include "Biscuit/EntryPoint.h"
 //-------------------------------------
