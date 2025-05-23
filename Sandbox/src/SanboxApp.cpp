@@ -120,12 +120,28 @@ public:
 
 	void OnUpdate() override
 	{
+		//OnUpdata是每一帧都会调用，而Event是只有激活按键时才会响应，所以镜头移动代码放在这里移动会更加丝滑。
+		if (Biscuit::Input::IsKeyPressed(BC_KEY_LEFT))
+			m_CameraPosition.x += m_CameraMoveSpeed;
+		else if (Biscuit::Input::IsKeyPressed(BC_KEY_RIGHT))
+			m_CameraPosition.x -= m_CameraMoveSpeed;
+
+		if (Biscuit::Input::IsKeyPressed(BC_KEY_UP))
+			m_CameraPosition.y -= m_CameraMoveSpeed;
+		else if (Biscuit::Input::IsKeyPressed(BC_KEY_DOWN))
+			m_CameraPosition.y += m_CameraMoveSpeed;
+
+		if (Biscuit::Input::IsKeyPressed(BC_KEY_A))
+			m_CameraRotation -= m_CameraRotationSpeed;
+		else if(Biscuit::Input::IsKeyPressed(BC_KEY_D))
+			m_CameraRotation += m_CameraRotationSpeed;
+
 		Biscuit::RenderCommand::SetClearColor({ 0.1f,0.1f,0.1f,1 });
 		Biscuit::RenderCommand::Clear();
 
 
-		m_Camera.SetPosition({ 0.5f, 0.5f, 0.0f });
-		m_Camera.SetRotation(45.0f);
+		m_Camera.SetPosition(m_CameraPosition);
+		m_Camera.SetRotation(m_CameraRotation);
 
 		Biscuit::Renderer::BeginScene(m_Camera);
 
@@ -142,7 +158,10 @@ public:
 
 	void OnEvent(Biscuit::Event& event) override
 	{
+	}
 
+	bool OnKeyPressedEvent(Biscuit::KeyPressedEvent& event)
+	{
 	}
 private:
 	std::shared_ptr<Biscuit::Shader> m_Shader;
@@ -151,6 +170,11 @@ private:
 	std::shared_ptr<Biscuit::VertexArray> m_SquareVA;
 
 	Biscuit::OrthographicCamera m_Camera;
+	glm::vec3 m_CameraPosition{0,0,0};
+	float m_CameraMoveSpeed = 0.1f;
+
+	float m_CameraRotation = 0.0f;
+	float m_CameraRotationSpeed = 2.0f;
 };
 
 class Sandbox :public Biscuit::Application
