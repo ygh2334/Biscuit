@@ -6,6 +6,8 @@
 #include "Biscuit/Layer.h"
 #include "Biscuit/Log.h"
 
+#include "Biscuit/Core/Timestep.h"
+
 #include "Biscuit/Input.h"
 #include "Biscuit/KeyCodes.h"
 #include "Biscuit/MouseButtonCodes.h"

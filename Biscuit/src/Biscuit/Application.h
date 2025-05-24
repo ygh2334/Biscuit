@@ -6,13 +6,9 @@
 #include "Biscuit/LayerStack.h"
 #include "Biscuit/Events/Event.h"
 #include "Biscuit/Events/ApplicationEvent.h"
+#include "Biscuit/Core/Timestep.h"
 
 #include "Biscuit/ImGui/ImGuiLayer.h"
-
-#include "Biscuit/Renderer/Shader.h"
-#include "Biscuit/Renderer/Buffer.h"
-#include "Biscuit/Renderer/VertexArray.h"
-#include "Biscuit/Renderer/OrthographicCamera.h"
 
 namespace Biscuit {
 
@@ -34,11 +30,12 @@ namespace Biscuit {
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		float m_lastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

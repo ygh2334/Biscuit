@@ -3,6 +3,8 @@
 #include "Biscuit/Core.h"
 #include "Biscuit/Events/Event.h"
 
+#include "Biscuit/Core/Timestep.h"
+
 namespace Biscuit
 {
 	class BISCUIT_API Layer
@@ -13,7 +15,7 @@ namespace Biscuit
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

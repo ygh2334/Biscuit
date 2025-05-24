@@ -5,6 +5,8 @@
 #include "Biscuit/Renderer/Renderer.h"
 #include "Input.h"
 
+#include "GLFW/glfw3.h"
+
 namespace Biscuit {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
@@ -55,8 +57,12 @@ namespace Biscuit {
 	{
 		while (m_Running)
 		{
+			float time = (float)glfwGetTime();
+			Timestep timstep = time - m_lastFrameTime;  // 这里构造函数中没写 explicit,允许隐式构造，所以可以直接用float构造
+			m_lastFrameTime = time;
+
 			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timstep);
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

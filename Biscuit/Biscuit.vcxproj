@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Biscuit\Core\Timestep.h" />
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h" />
     <ClInclude Include="src\Biscuit\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Biscuit\Renderer\RenderCommand.h" />

@@ -15,3 +15,6 @@
 # 这两种写法结果一致,lambda表达式更推荐了
 # dispath.Dispatch<Biscuit::KeyPressedEvent>(std::bind(&ExampleLayer::OnKeyPressedEvent, this, std::placeholders::_1));
 # dispath.Dispatch<Biscuit::KeyPressedEvent>([this](Biscuit::KeyPressedEvent& e) {return this->OnKeyPressedEvent(e); });
+
+# 37节 (TIMESTEPS and DELTA TIME) 完成  5/24/2025
+

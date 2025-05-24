@@ -118,23 +118,24 @@ public:
 		m_BlueShader.reset(new Biscuit::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Biscuit::Timestep ts) override
 	{
 		//OnUpdata是每一帧都会调用，而Event是只有激活按键时才会响应，所以镜头移动代码放在这里移动会更加丝滑。
+		//这里ts计算了屏幕的刷新时间，会根据屏幕刷新去移动，而不受到OnUpdate的频率影响，保证了不同Update下移动速度相同。
 		if (Biscuit::Input::IsKeyPressed(BC_KEY_LEFT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 		else if (Biscuit::Input::IsKeyPressed(BC_KEY_RIGHT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 
 		if (Biscuit::Input::IsKeyPressed(BC_KEY_UP))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 		else if (Biscuit::Input::IsKeyPressed(BC_KEY_DOWN))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 
 		if (Biscuit::Input::IsKeyPressed(BC_KEY_A))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 		else if(Biscuit::Input::IsKeyPressed(BC_KEY_D))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * ts;
 
 		Biscuit::RenderCommand::SetClearColor({ 0.1f,0.1f,0.1f,1 });
 		Biscuit::RenderCommand::Clear();
@@ -171,10 +172,10 @@ private:
 
 	Biscuit::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition{0,0,0};
-	float m_CameraMoveSpeed = 0.1f;
+	float m_CameraMoveSpeed = 5.0f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 class Sandbox :public Biscuit::Application
