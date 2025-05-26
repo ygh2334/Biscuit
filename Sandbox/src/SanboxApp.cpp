@@ -90,7 +90,7 @@ public:
 
 		m_Shader.reset(new Biscuit::Shader(vertexSrc, fragmentSrc));
 
-		std::string blueShaderVertexSrc = R"(
+		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -105,19 +105,20 @@ public:
 			}
 		)";
 
-		std::string blueShaderFragmentSrc = R"(
+		std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) out vec4 color;
 			in vec3 v_Position;
+			uniform vec4 u_Color;
 
 			void main()
 			{
-				color = vec4(0.2,0.3,0.8,1.0);
+				color = u_Color;
 			}
 		)";
 
-		m_BlueShader.reset(new Biscuit::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
+		m_FlatColorShader.reset(new Biscuit::Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Biscuit::Timestep ts) override
@@ -149,13 +150,31 @@ public:
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(0.1f));
 
+		glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
+		glm::vec4 blueColor(0.2f, 0.2f, 0.8f, 1.0f);
+
+		//待完成Texture系统 -05/26/2025
+		//Biscuit::MaterialRef material = new Biscuit::Material(m_FlatColorShader);
+		//Biscuit::MaterialInstanceRef mi = new Biscuit::MaterialInstance(material);
+
+		//mi->SetValue("u_Color", redColor);
+		//mi->SetTexture("u_AlbedoMap", texture);
+		//squareMesh->SetMaterial(mi);
+
 		for (int y = 0; y < 20; y++)
 		{
 			for (int x = 0; x < 20; x++)
 			{
 				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				Biscuit::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+
+				if (x % 2 == 0)
+					m_FlatColorShader->UploadUniformFloat("u_Color", redColor);
+				else
+					m_FlatColorShader->UploadUniformFloat("u_Color", blueColor);
+
+
+				Biscuit::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
 
@@ -178,7 +197,7 @@ public:
 	}
 private:
 	std::shared_ptr<Biscuit::Shader> m_Shader;
-	std::shared_ptr<Biscuit::Shader> m_BlueShader;
+	std::shared_ptr<Biscuit::Shader> m_FlatColorShader;
 	std::shared_ptr<Biscuit::VertexArray> m_VertexArray;
 	std::shared_ptr<Biscuit::VertexArray> m_SquareVA;
 

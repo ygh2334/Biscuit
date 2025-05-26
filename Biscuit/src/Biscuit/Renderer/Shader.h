@@ -15,6 +15,7 @@ namespace  Biscuit
 		void Unbind() const;
 
 		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix);
+		void UploadUniformFloat(const std::string& name, const glm::vec4& value);
 
 	private:
 		uint32_t m_RendererID;
