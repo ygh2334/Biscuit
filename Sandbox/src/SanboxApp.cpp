@@ -88,7 +88,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(new Biscuit::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(Biscuit::Shader::Create(vertexSrc, fragmentSrc));
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -118,7 +118,7 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(new Biscuit::Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader.reset(Biscuit::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Biscuit::Timestep ts) override
@@ -152,14 +152,6 @@ public:
 
 		glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
 		glm::vec4 blueColor(0.2f, 0.2f, 0.8f, 1.0f);
-
-		//待完成Texture系统 -05/26/2025
-		//Biscuit::MaterialRef material = new Biscuit::Material(m_FlatColorShader);
-		//Biscuit::MaterialInstanceRef mi = new Biscuit::MaterialInstance(material);
-
-		//mi->SetValue("u_Color", redColor);
-		//mi->SetTexture("u_AlbedoMap", texture);
-		//squareMesh->SetMaterial(mi);
 
 		for (int y = 0; y < 20; y++)
 		{
