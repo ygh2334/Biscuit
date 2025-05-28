@@ -20,4 +20,5 @@
 # 38节 (Transforms) 完成  5/25/2025
 # 39节 (Material Systems) 完成  5/26/2025
 # 40节 (Shader Abstraction and Uniforms) 15:47  5/27/2025
+# 40节 (Shader Abstraction and Uniforms) 完成  5/28/2025
 
