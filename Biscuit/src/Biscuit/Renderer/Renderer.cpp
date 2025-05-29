@@ -16,7 +16,7 @@ namespace Biscuit {
 	{
 	}
 
-	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& transfrom)
+	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transfrom)
 	{
 		shader->Bind();
 		//智能指针的类型转换，dynamic_cast是c++的关键字

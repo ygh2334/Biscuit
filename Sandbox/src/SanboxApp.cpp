@@ -18,7 +18,7 @@ public:
 			0.0f,0.5f,0.0f,0.8f,0.8f,0.2f,1.0f
 		};
 
-		std::shared_ptr<Biscuit::VertexBuffer> vertexBuffer;
+		Biscuit::Ref<Biscuit::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Biscuit::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Biscuit::BufferLayout layout = {
 			{Biscuit::ShaderDataType::Float3, "a_Position"},
@@ -29,7 +29,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0,1,2 };
-		std::shared_ptr<Biscuit::IndexBuffer> indexBuffer;
+		Biscuit::Ref<Biscuit::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Biscuit::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -42,7 +42,7 @@ public:
 			-0.5f,0.5f,0.0f
 		};
 
-		std::shared_ptr<Biscuit::VertexBuffer> squareVB;
+		Biscuit::Ref<Biscuit::VertexBuffer> squareVB;
 		squareVB.reset(Biscuit::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout(
@@ -52,7 +52,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0,1,2,2,3,0 };
-		std::shared_ptr<Biscuit::IndexBuffer> squareIB;
+		Biscuit::Ref<Biscuit::IndexBuffer> squareIB;
 		squareIB.reset(Biscuit::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -185,10 +185,10 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<Biscuit::Shader> m_Shader;
-	std::shared_ptr<Biscuit::Shader> m_FlatColorShader;
-	std::shared_ptr<Biscuit::VertexArray> m_VertexArray;
-	std::shared_ptr<Biscuit::VertexArray> m_SquareVA;
+	Biscuit::Ref<Biscuit::Shader> m_Shader;
+	Biscuit::Ref<Biscuit::Shader> m_FlatColorShader;
+	Biscuit::Ref<Biscuit::VertexArray> m_VertexArray;
+	Biscuit::Ref<Biscuit::VertexArray> m_SquareVA;
 
 	Biscuit::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
