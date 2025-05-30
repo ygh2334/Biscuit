@@ -2,9 +2,6 @@
 
 #### 节数 课程名称 当前课程进度 日期
 
-
-
-
 # 34节 (CAMERAS and How They Work) 已完成 5/13/2025
 # 35节 (Creating an Orthographic Camera) 14:34 5/14/2025
 # 35节 (Creating an Orthographic Camera) 26:00 5/20/2025
@@ -22,4 +19,5 @@
 # 40节 (Shader Abstraction and Uniforms) 15:47  5/27/2025
 # 40节 (Shader Abstraction and Uniforms) 完成  5/28/2025
 # 41节 (Refs, Scopes and Smart Pointers) 完成  5/29/2025
+# 42节 (TEXTURES) 29:01  5/30/2025
 

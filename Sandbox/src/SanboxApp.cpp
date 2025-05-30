@@ -35,11 +35,11 @@ public:
 
 		m_SquareVA.reset(Biscuit::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-			-0.5f,-0.5f,0.0f,
-			0.5f,-0.5f,0.0f,
-			0.5f,0.5f,0.0f,
-			-0.5f,0.5f,0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
 		Biscuit::Ref<Biscuit::VertexBuffer> squareVB;
@@ -47,7 +47,8 @@ public:
 
 		squareVB->SetLayout(
 			{
-				{Biscuit::ShaderDataType::Float3, "a_Position"}
+				{Biscuit::ShaderDataType::Float3, "a_Position"},
+				{Biscuit::ShaderDataType::Float2, "a_TexCoord"}
 			});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
@@ -93,8 +94,8 @@ public:
 		m_Shader.reset(Biscuit::Shader::Create(vertexSrc, fragmentSrc));
 
 		std::string flatColorShaderVertexSrc = R"(
-			#version 330 core
-			
+			#version 330 core		
+
 			layout(location = 0) in vec3 a_Position;
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
@@ -121,6 +122,39 @@ public:
 		)";
 
 		m_FlatColorShader.reset(Biscuit::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureColorShaderVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureColorShaderFragmentSrc = R"(
+			#version 330 core
+
+			layout(location = 0) out vec4 color;
+			in vec2 v_TexCoord;
+			uniform vec3 u_Color;
+
+			void main()
+			{
+				color = vec4(v_TexCoord, 0.0f, 1.0f);
+			}			
+
+		)";
+
+		m_TextureColorShader.reset(Biscuit::Shader::Create(textureColorShaderVertexSrc, textureColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Biscuit::Timestep ts) override
@@ -165,7 +199,10 @@ public:
 			}
 		}
 
-		Biscuit::Renderer::Submit(m_Shader, m_VertexArray);
+		Biscuit::Renderer::Submit(m_TextureColorShader, m_SquareVA, glm::scale(glm::mat4(1.0), glm::vec3(1.5f)));
+
+		//Èý½ÇÐÎ
+		//Biscuit::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Biscuit::Renderer::EndScene();
 	}
@@ -186,7 +223,7 @@ public:
 	}
 private:
 	Biscuit::Ref<Biscuit::Shader> m_Shader;
-	Biscuit::Ref<Biscuit::Shader> m_FlatColorShader;
+	Biscuit::Ref<Biscuit::Shader> m_FlatColorShader, m_TextureColorShader;
 	Biscuit::Ref<Biscuit::VertexArray> m_VertexArray;
 	Biscuit::Ref<Biscuit::VertexArray> m_SquareVA;
 

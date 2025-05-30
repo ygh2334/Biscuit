@@ -150,6 +150,7 @@
     <ClInclude Include="src\Biscuit\Renderer\Renderer.h" />
     <ClInclude Include="src\Biscuit\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Biscuit\Renderer\Shader.h" />
+    <ClInclude Include="src\Biscuit\Renderer\Texture.h" />
     <ClInclude Include="src\Biscuit\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="src\Biscuit\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -184,6 +186,7 @@
     <ClCompile Include="src\Biscuit\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Biscuit\Renderer\Texture.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
@@ -195,6 +198,7 @@
     <ClCompile Include="src\Biscuit\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
