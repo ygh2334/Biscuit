@@ -20,6 +20,7 @@
 
 #include "Biscuit/Renderer/Buffer.h"
 #include "Biscuit/Renderer/Shader.h"
+#include "Biscuit/Renderer/Texture.h"
 #include "Biscuit/Renderer/VertexArray.h"
 
 #include "Biscuit/Renderer/OrthographicCamera.h"

@@ -145,16 +145,21 @@ public:
 
 			layout(location = 0) out vec4 color;
 			in vec2 v_TexCoord;
-			uniform vec3 u_Color;
+			uniform sampler2D u_Texture;
 
 			void main()
 			{
-				color = vec4(v_TexCoord, 0.0f, 1.0f);
+				color = texture(u_Texture, v_TexCoord);
 			}			
 
 		)";
 
 		m_TextureColorShader.reset(Biscuit::Shader::Create(textureColorShaderVertexSrc, textureColorShaderFragmentSrc));
+
+		m_Texture = Biscuit::Texture2D::Create("assets/texture/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Biscuit::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<Biscuit::OpenGLShader>(m_FlatColorShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Biscuit::Timestep ts) override
@@ -198,7 +203,7 @@ public:
 				Biscuit::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
-
+		m_Texture->Bind();
 		Biscuit::Renderer::Submit(m_TextureColorShader, m_SquareVA, glm::scale(glm::mat4(1.0), glm::vec3(1.5f)));
 
 		//Èý½ÇÐÎ
@@ -226,6 +231,8 @@ private:
 	Biscuit::Ref<Biscuit::Shader> m_FlatColorShader, m_TextureColorShader;
 	Biscuit::Ref<Biscuit::VertexArray> m_VertexArray;
 	Biscuit::Ref<Biscuit::VertexArray> m_SquareVA;
+
+	Biscuit::Ref<Biscuit::Texture2D> m_Texture;
 
 	Biscuit::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

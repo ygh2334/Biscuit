@@ -20,4 +20,5 @@
 # 40节 (Shader Abstraction and Uniforms) 完成  5/28/2025
 # 41节 (Refs, Scopes and Smart Pointers) 完成  5/29/2025
 # 42节 (TEXTURES) 29:01  5/30/2025
+# 42节 (TEXTURES) 完成  5/31/2025
 

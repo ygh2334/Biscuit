@@ -19,6 +19,7 @@ IncludeDir["GLFW"] = "Biscuit/vendor/GLFW/include"
 IncludeDir["Glad"] = "Biscuit/vendor/Glad/include"
 IncludeDir["ImGui"] = "Biscuit/vendor/imgui"
 IncludeDir["glm"] = "Biscuit/vendor/glm"
+IncludeDir["stb_image"] = "Biscuit/vendor/stb_image"
 
 --把依赖放到一个组里面
 group "Dependencies"
@@ -44,7 +45,10 @@ project "Biscuit"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/src/vendor/glm/glm/**.hpp"
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	defines 
@@ -59,7 +63,8 @@ project "Biscuit"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links 
