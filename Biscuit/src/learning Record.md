@@ -1,5 +1,9 @@
 #### 记录课程学习情况
 
+#### 常用git
+# 撤销提交
+# git reset --soft HEAD~1
+
 #### 节数 课程名称 当前课程进度 日期
 
 # 34节 (CAMERAS and How They Work) 已完成 5/13/2025
@@ -21,4 +25,5 @@
 # 41节 (Refs, Scopes and Smart Pointers) 完成  5/29/2025
 # 42节 (TEXTURES) 29:01  5/30/2025
 # 42节 (TEXTURES) 完成  5/31/2025
+# 43节 (BLENDING) 完成  6/01/2025
 

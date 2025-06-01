@@ -157,6 +157,7 @@ public:
 		m_TextureColorShader.reset(Biscuit::Shader::Create(textureColorShaderVertexSrc, textureColorShaderFragmentSrc));
 
 		m_Texture = Biscuit::Texture2D::Create("assets/texture/Checkerboard.png");
+		m_ChernoLogoTexture = Biscuit::Texture2D::Create("assets/texture/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Biscuit::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<Biscuit::OpenGLShader>(m_FlatColorShader)->UploadUniformInt("u_Texture", 0);
@@ -205,6 +206,8 @@ public:
 		}
 		m_Texture->Bind();
 		Biscuit::Renderer::Submit(m_TextureColorShader, m_SquareVA, glm::scale(glm::mat4(1.0), glm::vec3(1.5f)));
+		m_ChernoLogoTexture->Bind();
+		Biscuit::Renderer::Submit(m_TextureColorShader, m_SquareVA, glm::scale(glm::mat4(1.0), glm::vec3(1.5f)));
 
 		//Èý½ÇÐÎ
 		//Biscuit::Renderer::Submit(m_Shader, m_VertexArray);
@@ -232,7 +235,7 @@ private:
 	Biscuit::Ref<Biscuit::VertexArray> m_VertexArray;
 	Biscuit::Ref<Biscuit::VertexArray> m_SquareVA;
 
-	Biscuit::Ref<Biscuit::Texture2D> m_Texture;
+	Biscuit::Ref<Biscuit::Texture2D> m_Texture, m_ChernoLogoTexture;
 
 	Biscuit::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
