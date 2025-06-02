@@ -26,4 +26,5 @@
 # 42节 (TEXTURES) 29:01  5/30/2025
 # 42节 (TEXTURES) 完成  5/31/2025
 # 43节 (BLENDING) 完成  6/01/2025
+# 44节 (Shader Asset Files) 完成  6/02/2025
 
