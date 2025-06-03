@@ -87,7 +87,8 @@ namespace Biscuit {
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
 		GLuint program = glCreateProgram();
-		std::vector<GLenum> glShaderIDs(shaderSources.size());
+		BC_CORE_ASSERT(shaderSources.size() <= 2, "we are now only support 2 shaders!");
+		std::array<GLenum, 2> glShaderIDs;		int openglShaderNum = 0;
 		for (auto& kv : shaderSources)
 		{
 			GLenum type = kv.first;
@@ -121,7 +122,7 @@ namespace Biscuit {
 				break;
 			}
 			glAttachShader(program, shader);
-			glShaderIDs.push_back(shader);
+			glShaderIDs[openglShaderNum++] = shader;
 		}
 		// Link our program
 		glLinkProgram(program);
