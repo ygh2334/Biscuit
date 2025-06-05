@@ -29,4 +29,5 @@
 # 44节 (Shader Asset Files) 完成  6/02/2025
 # 45节 (Shader Library) 20:40  6/03/2025
 # 45节 (Shader Library) 完成  6/04/2025
+# 46节 (How to Build a 2D Renderer) 完成  6/05/2025
 
