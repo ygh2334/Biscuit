@@ -159,6 +159,7 @@
     <ClInclude Include="src\Biscuit\LayerStack.h" />
     <ClInclude Include="src\Biscuit\Log.h" />
     <ClInclude Include="src\Biscuit\MouseButtonCodes.h" />
+    <ClInclude Include="src\Biscuit\OrthographicCameraController.h" />
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h" />
     <ClInclude Include="src\Biscuit\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Biscuit\Renderer\OrthographicCamera.h" />
@@ -603,6 +604,7 @@
     <ClCompile Include="src\Biscuit\Layer.cpp" />
     <ClCompile Include="src\Biscuit\LayerStack.cpp" />
     <ClCompile Include="src\Biscuit\Log.cpp" />
+    <ClCompile Include="src\Biscuit\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Biscuit\Renderer\RenderCommand.cpp" />
