@@ -31,4 +31,5 @@
 # 45节 (Shader Library) 完成  6/04/2025
 # 46节 (How to Build a 2D Renderer) 完成  6/05/2025
 # 47节 (Camera Controllers) 20:52  6/6/2025
+# 47节 (Camera Controllers) 完成  6/7/2025
 
