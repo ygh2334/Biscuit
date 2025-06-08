@@ -46,6 +46,7 @@ namespace Biscuit {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -63,8 +64,11 @@ namespace Biscuit {
 			Timestep timstep = time - m_lastFrameTime;  // 这里构造函数中没写 explicit,允许隐式构造，所以可以直接用float构造
 			m_lastFrameTime = time;
 
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timstep);
+			if (!m_Minimized)
+			{
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timstep);
+			}
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -80,4 +84,18 @@ namespace Biscuit {
 		m_Running = false;
 		return true;
 	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+		
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		m_Minimized = false;
+		return false;
+	}
+
 }
