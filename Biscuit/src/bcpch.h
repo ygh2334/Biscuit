@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Biscuit/Log.h"
+#include "Biscuit/Core/Log.h"
 
 #ifdef BC_PLATFORM_WINDOWS
 	#include <Windows.h>

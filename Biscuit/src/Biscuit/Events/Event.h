@@ -1,6 +1,6 @@
 #pragma once
 #include "bcpch.h"
-#include "Biscuit/Core.h"
+#include "Biscuit/Core/Core.h"
 
 namespace Biscuit {
 

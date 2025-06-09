@@ -57,17 +57,38 @@
     <ClInclude Include="src\Biscuit.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Biscuit\Application.h">
-      <Filter>src\Biscuit</Filter>
+    <ClInclude Include="src\Biscuit\Core\Application.h">
+      <Filter>src\Biscuit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Biscuit\Core.h">
-      <Filter>src\Biscuit</Filter>
+    <ClInclude Include="src\Biscuit\Core\Core.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\EntryPoint.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\Input.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\KeyCodes.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\Layer.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\LayerStack.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\Log.h">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Core\MouseButtonCodes.h">
+      <Filter>src\Biscuit\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Biscuit\Core\Timestep.h">
       <Filter>src\Biscuit\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Biscuit\EntryPoint.h">
-      <Filter>src\Biscuit</Filter>
+    <ClInclude Include="src\Biscuit\Core\Window.h">
+      <Filter>src\Biscuit\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Biscuit\Events\ApplicationEvent.h">
       <Filter>src\Biscuit\Events</Filter>
@@ -84,24 +105,6 @@
     <ClInclude Include="src\Biscuit\ImGui\ImGuiLayer.h">
       <Filter>src\Biscuit\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Biscuit\Input.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\KeyCodes.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\Layer.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\LayerStack.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\Log.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\MouseButtonCodes.h">
-      <Filter>src\Biscuit</Filter>
-    </ClInclude>
     <ClInclude Include="src\Biscuit\Renderer\Buffer.h">
       <Filter>src\Biscuit\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\Biscuit\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Biscuit\Renderer\OrthographicCamera.h">
+      <Filter>src\Biscuit\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Biscuit\Renderer\OrthographicCameraController.h">
       <Filter>src\Biscuit\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Biscuit\Renderer\RenderCommand.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\Biscuit\Renderer\VertexArray.h">
       <Filter>src\Biscuit\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Biscuit\Window.h">
-      <Filter>src\Biscuit</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1410,11 +1413,19 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Biscuit\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Biscuit\Application.cpp">
-      <Filter>src\Biscuit</Filter>
+    <ClCompile Include="src\Biscuit\Core\Application.cpp">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Core\Layer.cpp">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Core\LayerStack.cpp">
+      <Filter>src\Biscuit\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Core\Log.cpp">
+      <Filter>src\Biscuit\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Biscuit\ImGui\ImGuiBuild.cpp">
       <Filter>src\Biscuit\ImGui</Filter>
@@ -1422,19 +1433,13 @@
     <ClCompile Include="src\Biscuit\ImGui\ImGuiLayer.cpp">
       <Filter>src\Biscuit\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Biscuit\Layer.cpp">
-      <Filter>src\Biscuit</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Biscuit\LayerStack.cpp">
-      <Filter>src\Biscuit</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Biscuit\Log.cpp">
-      <Filter>src\Biscuit</Filter>
-    </ClCompile>
     <ClCompile Include="src\Biscuit\Renderer\Buffer.cpp">
       <Filter>src\Biscuit\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Biscuit\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Biscuit\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Biscuit\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Biscuit\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Biscuit\Renderer\RenderCommand.cpp">
@@ -1485,6 +1490,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Biscuit\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

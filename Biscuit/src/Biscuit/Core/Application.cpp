@@ -1,6 +1,6 @@
 #include "bcpch.h"
 #include "Application.h"
-#include "Biscuit/Log.h"
+#include "Biscuit/Core/Log.h"
 
 #include "Biscuit/Renderer/Renderer.h"
 #include "Input.h"

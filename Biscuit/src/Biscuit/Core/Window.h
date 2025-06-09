@@ -2,7 +2,7 @@
 
 #include "bcpch.h"
 
-#include "Biscuit/Core.h"
+#include "Biscuit/Core/Core.h"
 #include "Biscuit/Events/Event.h"
 
 namespace Biscuit {

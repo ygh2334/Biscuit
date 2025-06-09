@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-#include "Biscuit/Core.h"
+#include "Biscuit/Core/Core.h"
 
 namespace Biscuit {
 

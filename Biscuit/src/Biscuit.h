@@ -2,16 +2,16 @@
 
 //For use by Biscuit applications
 #include <stdio.h>
-#include "Biscuit/Application.h"
-#include "Biscuit/Layer.h"
-#include "Biscuit/Log.h"
+#include "Biscuit/Core/Application.h"
+#include "Biscuit/Core/Layer.h"
+#include "Biscuit/Core/Log.h"
 
 #include "Biscuit/Core/Timestep.h"
 
-#include "Biscuit/Input.h"
-#include "Biscuit/KeyCodes.h"
-#include "Biscuit/MouseButtonCodes.h"
-#include "Biscuit/OrthographicCameraController.h"
+#include "Biscuit/Core/Input.h"
+#include "Biscuit/Core/KeyCodes.h"
+#include "Biscuit/Core/MouseButtonCodes.h"
+#include "Biscuit/Renderer/OrthographicCameraController.h"
 
 #include "Biscuit/ImGui/ImGuiLayer.h"
 
@@ -28,6 +28,6 @@
 //-------------------------------------
 
 //---Entry Point-----------------------
-#include "Biscuit/EntryPoint.h"
+#include "Biscuit/Core/EntryPoint.h"
 //-------------------------------------
 

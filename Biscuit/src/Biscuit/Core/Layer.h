@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Biscuit/Core.h"
+#include "Biscuit/Core/Core.h"
 #include "Biscuit/Events/Event.h"
 
 #include "Biscuit/Core/Timestep.h"

@@ -1,7 +1,7 @@
 #include "bcpch.h"
 #include "WindowsInput.h"
 
-#include "Biscuit/Application.h"
+#include "Biscuit/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Biscuit

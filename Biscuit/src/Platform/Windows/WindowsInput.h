@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Biscuit/Input.h"
+#include "Biscuit/Core/Input.h"
 
 namespace Biscuit
 {

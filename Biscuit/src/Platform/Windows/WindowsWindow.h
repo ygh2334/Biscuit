@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Biscuit/Window.h"
+#include "Biscuit/Core/Window.h"
 #include "Biscuit/Renderer/GraphicsContext.h"
 
 #include "GLFW/glfw3.h"
