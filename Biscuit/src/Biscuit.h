@@ -27,7 +27,3 @@
 #include "Biscuit/Renderer/OrthographicCamera.h"
 //-------------------------------------
 
-//---Entry Point-----------------------
-#include "Biscuit/Core/EntryPoint.h"
-//-------------------------------------
-

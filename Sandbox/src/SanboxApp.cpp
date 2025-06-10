@@ -1,4 +1,6 @@
 #include <Biscuit.h>
+#include <Biscuit/Core/EntryPoint.h>
+
 #include "imgui/imgui.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include "Platform/OpenGL/OpenGLShader.h"
@@ -6,13 +8,15 @@
 
 #include "Biscuit/Renderer/Shader.h"
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Biscuit::Layer
 {
 public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Biscuit::VertexArray::Create());
+		m_VertexArray = Biscuit::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f,-0.5f,0.0f,0.8f,0.2f,0.8f,1.0f,
@@ -35,7 +39,7 @@ public:
 		indexBuffer.reset(Biscuit::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Biscuit::VertexArray::Create());
+		m_SquareVA = Biscuit::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -204,14 +208,14 @@ class Sandbox :public Biscuit::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()
 	{
 
 	}
-
 };
 
 Biscuit::Application* Biscuit::CreateApplication()

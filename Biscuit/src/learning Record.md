@@ -34,4 +34,5 @@
 # 47节 (Camera Controllers) 完成  6/7/2025
 # 48节 (Resizing) 完成  6/8/2025
 # 49节 (Maintenance) 完成  6/9/2025
+# 50节 (Preparing for 2D Rendering ) 完成  6/10/2025
 
